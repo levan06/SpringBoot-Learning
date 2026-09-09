@@ -1,0 +1,40 @@
+body {
+    font-family: Arial;
+    text-align: center;
+    margin-top: 50px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+
+    margin: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+
+    border-radius: 10px;
+    border: solid 2px antiquewhite;
+    box-shadow: 5px 5px 5px black;
+    background-color: antiquewhite;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: rgb(223, 176, 114);
+    border: solid 2px rgb(223, 176, 114);
+    cursor: pointer;
+
+    transform: scale(1.1);
+}
+
+input {
+    border-radius: 10px;
+}
+
+input::placeholder {
+    color: rgb(128, 128, 128, 0.50);
+}
