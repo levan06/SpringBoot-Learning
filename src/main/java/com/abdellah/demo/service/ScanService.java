@@ -1,19 +1,17 @@
-package com.abdellah.demo;
+package com.abdellah.demo.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Map;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
-@RestController
-public class ScanController 
+import com.abdellah.demo.dto.ScanResponse;
+
+@Service 
+public class ScanService
 {
-    @PostMapping("/scan")
-    public Map<String, String> scan(@RequestBody ScanResult request)
+    public ScanResponse scan(String target)
     {
         String ipv4         = "Non trouvé ou erreur";
         String resultatNmap = "Non trouvé ou erreur";
@@ -22,7 +20,7 @@ public class ScanController
             // 1. Added "cmd.exe", "/c" so the shell 'for' command can execute
             ProcessBuilder pbIPv4 = new ProcessBuilder( 
                 "cmd.exe", "/c",
-                "for /f \"tokens=2 delims=[]\" %a in ('ping -n 1 -4 " + request.getTarget() + " ^| findstr \"[\"') do @echo %a"
+                "for /f \"tokens=2 delims=[]\" %a in ('ping -n 1 -4 " + target + " ^| findstr \"[\"') do @echo %a"
             );
 
             Process processIPv4 = pbIPv4.start();
@@ -64,10 +62,6 @@ public class ScanController
             Thread.currentThread().interrupt(); // Restore interrupted state if InterruptedException happens
         }
 
-        // 2. Changed "+ pb" to "+ ipv4" to return the actual string instead of the object
-        return Map.of(
-            "message", "Scan ipv4 pour " + request.getTarget() + " est : " + ipv4,
-            "nmap", "Nmap : " + resultatNmap
-        );
+        return new ScanResponse(target, ipv4, resultatNmap);
     }
 }

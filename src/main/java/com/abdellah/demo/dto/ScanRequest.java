@@ -1,6 +1,6 @@
-package com.abdellah.demo;
+package com.abdellah.demo.dto;
 
-public class ScanResult 
+public class ScanRequest 
 {
     private String target;
 

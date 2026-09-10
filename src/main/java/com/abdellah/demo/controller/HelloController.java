@@ -1,4 +1,4 @@
-package com.abdellah.demo;
+package com.abdellah.demo.controller;
 
 import java.util.Map;
 
