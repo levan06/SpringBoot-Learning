@@ -5,9 +5,17 @@ body {
     box-sizing: border-box;
 }
 
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+
+    flex: 1;
 
     margin: 15px;
 }
