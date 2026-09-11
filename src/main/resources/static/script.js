@@ -4,7 +4,7 @@ const result = document.getElementById("result");
 
 btnBonjour.addEventListener( "click", async() => 
 {
-    const response = await fetch( "/hello" );
+    const response = await fetch( "/api/hello" );
     const text     = await response.text();
 
     result.textContent = text;
@@ -33,7 +33,7 @@ scanBtn.addEventListener( "click", async() =>
 {
     const target   = document.getElementById("target").value;
 
-    const response = await fetch("/scan",
+    const response = await fetch("/api/scan",
     {
         method: "POST",
 
@@ -57,7 +57,7 @@ const idResult = document.getElementById( "idResult" );
 
 idBtn.addEventListener( "click", async() =>
 {
-    const data = await fetch("/testID/1290");
+    const data = await fetch("/api/testID/1290");
     const response = await data.text();
 
     idResult.textContent = response;
