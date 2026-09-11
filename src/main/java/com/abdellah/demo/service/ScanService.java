@@ -59,6 +59,7 @@ public class ScanService
             
         } catch (IOException | InterruptedException e) {
             ipv4 = "Erreur système : " + e.getMessage();
+            resultatNmap = "Erreur système : " + e.getMessage();
             Thread.currentThread().interrupt(); // Restore interrupted state if InterruptedException happens
         }
 
