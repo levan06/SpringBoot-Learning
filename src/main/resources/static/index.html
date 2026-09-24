@@ -42,6 +42,16 @@
         <div class="container">
             <a href="/api/hello"><button>Aller vers page /hello</button></a>
         </div>
+
+        <div class="container">    
+            <form id="createUserFrom">
+                <input  type="text"  name="nom"   required placeholder="Votre nom">
+                <input  type="email" name="email" required placeholder="Votre email">
+                <button type="submit" id="createUserBtn">Create User</button>
+            </form>
+
+            <p id="createUserResult"></p>
+        </div>
     </section>
 
     <script src="script.js"></script>
