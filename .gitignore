@@ -44,4 +44,4 @@ logs/
 ### Environment / Secrets ###
 .env
 .env.local
-
+run.ps1
