@@ -11,7 +11,7 @@ registerForm.addEventListener( 'submit', async(event) =>
 
     console.log(`Nom : ${objetData.nom}`);
 
-    const dataFetch = await fetch('/auth', 
+    const dataFetch = await fetch('/register', 
     {
         method: "POST",
 

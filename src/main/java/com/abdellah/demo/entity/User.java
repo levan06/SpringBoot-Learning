@@ -6,22 +6,31 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
 public class User 
 {
+    /*===============*/
+    /*   Attributs   */
+    /*===============*/
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)   
     private Long id;
     
-    @Column(nullable = false)
     @NotBlank(message = "Name cannot be blank")
     private String nom;
 
+    @Email(message = "Email is not valid")
+    @NotBlank(message = "Email cannot be blank")
     private String email;
 
+
+    /*=============================*/
+    /*  Construcutor and Methodes  */
+    /*=============================*/
     public User() {}
     public User( String nom, String email )
     {
