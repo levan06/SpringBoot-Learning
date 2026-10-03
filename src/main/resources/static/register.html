@@ -14,7 +14,7 @@
             <span>atelier<span class="brand-dot">.</span></span>
         </a>
         <a class="nav-link" href="index.html">
-            ← Retour à l’accueil
+            ← Retour à l'accueil
         </a>
     </header>
     <main class="auth-layout register-layout">
@@ -27,7 +27,7 @@
                 Votre prochaine<br>
                 aventure <span>commence ici.</span>
             </h1>
-            <p>Créez votre espace en quelques instants. La suite, c’est vous qui l’imaginez.</p>
+            <p>Créez votre espace en quelques instants. La suite, c'est vous qui l'imaginez.</p>
             <div class="auth-decoration" aria-hidden="true">
                 <span>✳</span>
                 <i></i>
@@ -40,7 +40,7 @@
                 <h2 id="register-title">Créer un compte</h2>
                 <p class="subtitle">Quelques informations et vous y êtes.</p>
             </div>
-            <form id="registerForm">
+            <form method="post" id="registerForm">
                 <div class="form-group">
                     <label for="register-name">Nom</label>
                     <input
@@ -77,6 +77,11 @@
                 <button type="submit" class="button button-dark button-full">
                     Créer mon compte <span aria-hidden="true">→</span>
                 </button>
+
+                <!--=====================-->
+                <!--  Testing The Fetch  -->
+                <!--=====================-->
+                <p id="registerFormResult"></p>
             </form>
             <div id="registerResult" class="form-result" aria-live="polite"></div>
             <p class="auth-switch">
@@ -86,7 +91,9 @@
     </main>
     <footer class="site-footer auth-footer">
         <span>Un nouveau départ, tout simplement.</span>
-        <a href="index.html">Retour à l’accueil</a>
+        <a href="index.html">Retour à l'accueil</a>
     </footer>
+
+    <script src="js/register.js"></script>
 </body>
 </html>
