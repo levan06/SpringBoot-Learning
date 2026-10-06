@@ -11,15 +11,24 @@ registerForm.addEventListener( 'submit', async(event) =>
 
     console.log(`Nom : ${objetData.nom}`);
 
-    const dataFetch = await fetch('/register', 
+    try 
     {
-        method: "POST",
+        const dataFetch = await fetch('/register', 
+        {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: jsonForm
+        });
 
-        headers: { "Content-Type": "application/json" },
-        
-        body: jsonForm
-    });
+        const response = await dataFetch.text();
+        registerFormResult.textContent = response;
 
-    const response = await dataFetch.text();
-    registerFormResult.textContent = response;
+        if (dataFetch.ok && response.trim() === "Account Created") 
+        {
+            window.location.assign("dashboard.html");
+        }
+    } catch (error) {
+        registerFormResult.textContent = "Une erreur est survenue. Réessayez.";
+        console.error("Registration failed:", error);
+    }
 });

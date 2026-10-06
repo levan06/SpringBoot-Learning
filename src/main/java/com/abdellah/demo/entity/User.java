@@ -25,7 +25,11 @@ public class User
 
     @Email(message = "Email is not valid")
     @NotBlank(message = "Email cannot be blank")
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = false)
+    private String password;
 
 
     /*=============================*/
@@ -38,16 +42,28 @@ public class User
         this.email = email;
     }
 
+    /*================*/
+    /*    Getters     */
+    /*================*/
     public String getNom()
     {
-        return nom;
+        return this.nom;
     }
 
     public String getEmail()
     {
-        return email;
+        return this.email;
     }
 
+    public String getPassword()
+    {
+        return this.password;
+    }
+
+
+    /*================*/
+    /*    Setters     */
+    /*================*/
     public void setNom(String nom)
     {
         this.nom = nom;
@@ -56,5 +72,10 @@ public class User
     public void setEmail(String email) 
     {
         this.email = email;
+    }
+
+    public void setPassword(String password) 
+    {
+        this.password = password;
     }
 }

@@ -6,6 +6,7 @@ import com.abdellah.demo.entity.User;
 import com.abdellah.demo.repository.UserRepository;
 import com.abdellah.demo.service.UserAuthService;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -21,15 +22,31 @@ public class AuthController
     }
 
     @PostMapping("/register")
-    public String auth(@RequestBody User user) 
+    public ResponseEntity<String> register(@RequestBody User user) 
     {
-        if(! this.userService.isUserFormValid(user))
+        String registerResponse = this.userService.isUserRegisterValid(user); 
+
+        if( ! registerResponse.equals("Valid") )
         {
-            return "Invalid form";
+            return ResponseEntity.badRequest()
+                             .body(registerResponse);
         }
 
         userService.createUser(user);
-        return "Account Created";
+        return ResponseEntity.ok("Account Created");
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login( @RequestBody User user )
+    {
+        String loginResponse = this.userService.isUserLoginValid(user);
+
+        if( ! loginResponse.equals("Valid") )
+        {
+            return ResponseEntity.badRequest()
+                            .body( loginResponse );
+        }
+        return ResponseEntity.ok("Valid"); // A completer !!!!
     }
     
 }

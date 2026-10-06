@@ -4,40 +4,81 @@ import com.abdellah.demo.entity.User;
 import com.abdellah.demo.repository.UserRepository;
 
 import org.apache.commons.validator.routines.EmailValidator;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service 
 public class UserAuthService 
 {
     private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
 
-    public UserAuthService( UserRepository userRepository )
+    public UserAuthService( UserRepository userRepository, 
+                            BCryptPasswordEncoder passwordEncoder 
+                        )
     {
-        this.userRepository = userRepository;
+        this.userRepository  = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public boolean isUserFormValid( User user )
+    public String isUserRegisterValid( User user )
     {
         if( user == null ) 
-            return false;
+            return "User null";
 
+        /* Name Verifications */
         if( user.getNom() == null || user.getNom().isBlank() ) 
-            return false;
+            return "Enter Name";
 
+        /* Email Verifications */
         if( user.getEmail() == null || user.getEmail().isBlank() )
-            return false;
+            return "Enter Email";
 
         if(!EmailValidator.getInstance().isValid(user.getEmail()))
-            return false;
+            return "Invalid email";
 
         if(this.userRepository.existsByEmail(user.getEmail()))
-            return false;
+            return "Email alreasy exists";
 
-        return true;
+        if(user.getPassword() == null || user.getPassword().length() < 8)
+            return "Invalid Passoword";
+
+        return "Valid";
     }
+
+    public String isUserLoginValid( User user )
+    {
+        if( user == null ) 
+            return "Invalid Login"; 
+
+        if( ! this.userRepository.existsByEmail( user.getEmail() ) )
+            return "Invalid Login";
+
+
+        /* Password Verifications */
+        String storedPassword =  getUserPassword( user.getEmail() );
+        if( ! passwordEncoder.matches( user.getPassword(), storedPassword ) )
+            return "Invalid Login";
+
+        return "Valid";
+    }
+
+    private String getUserPassword( String email )
+    {
+        User userToFind = this.userRepository.findByEmail(email);
+
+        if(userToFind == null) return "User Not Found";
+        return userToFind.getPassword();
+    }
+    
 
     public void createUser( User user )
     {
+        user.setPassword(
+            passwordEncoder.encode(user.getPassword())
+        );
+
         this.userRepository.save(user);
     }
+
 }
