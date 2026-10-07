@@ -1,5 +1,7 @@
 package com.abdellah.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,12 +25,14 @@ public class User
     @NotBlank(message = "Name cannot be blank")
     private String nom;
 
-    @Email(message = "Email is not valid")
+    @Email   (message = "Email is not valid")
     @NotBlank(message = "Email cannot be blank")
-    @Column(nullable = false, unique = true)
+    @Column  (nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @NotBlank(message = "Password cannot be blank")
+    @Column  (nullable = false)
     private String password;
 
 
@@ -36,11 +40,6 @@ public class User
     /*  Construcutor and Methodes  */
     /*=============================*/
     public User() {}
-    public User( String nom, String email )
-    {
-        this.nom   = nom;
-        this.email = email;
-    }
 
     /*================*/
     /*    Getters     */

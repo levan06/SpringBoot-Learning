@@ -9,8 +9,6 @@ registerForm.addEventListener( 'submit', async(event) =>
     const objetData = Object.fromEntries(formData.entries());
     const jsonForm  = JSON.stringify(objetData);
 
-    console.log(`Nom : ${objetData.nom}`);
-
     try 
     {
         const dataFetch = await fetch('/register', 
@@ -25,7 +23,7 @@ registerForm.addEventListener( 'submit', async(event) =>
 
         if (dataFetch.ok && response.trim() === "Account Created") 
         {
-            window.location.assign("dashboard.html");
+            window.location.assign("login.html");
         }
     } catch (error) {
         registerFormResult.textContent = "Une erreur est survenue. Réessayez.";
