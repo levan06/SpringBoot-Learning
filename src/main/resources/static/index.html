@@ -1,75 +1,93 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f5f7f4">
-    <title>Accueil | Atelier</title>
+    <meta name="theme-color" content="#f4f7fb">
+    <title>StageFlow | Organisez votre recherche de stage</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="landing-page">
     <header class="site-header">
-        <a class="brand" href="index.html" aria-label="Atelier, accueil">
-            <span class="brand-mark" aria-hidden="true">A</span>
-            <span>atelier<span class="brand-dot">.</span></span>
+        <a class="brand" href="index.html" aria-label="StageFlow, accueil">
+            <span class="brand-mark" aria-hidden="true">S</span>
+            <span>StageFlow<span class="brand-dot">.</span></span>
         </a>
+
         <nav class="header-nav" aria-label="Navigation principale">
+            <a class="nav-link" href="#features">Fonctionnalités</a>
             <a class="nav-link" href="login.html">Connexion</a>
-            <a class="button button-small button-dark" href="register.html">
-                Créer un compte <span aria-hidden="true">↗</span>
-            </a>
+            <a class="button button-small button-dark" href="register.html">Créer un compte <span aria-hidden="true">→</span></a>
         </nav>
     </header>
 
-    <main class="hero-wrap">
-        <section class="hero-copy" aria-labelledby="hero-title">
-            <p class="eyebrow">
-                <span class="eyebrow-line"></span>
-                VOTRE ESPACE, À VOTRE RYTHME
-            </p>
-            <h1 id="hero-title">
-                Les bonnes idées
-                <br>
-                commencent <span>ici.</span>
-            </h1>
-            <p class="hero-description">
-                Un espace simple pour vous lancer, retrouver vos projets et donner vie à ce que vous avez en tête.
-            </p>
-            <div class="hero-actions">
-                <a class="button button-dark" href="register.html">
-                    Créer mon compte <span aria-hidden="true">↗</span>
-                </a>
-                <a class="button button-light" href="login.html">
-                    J'ai déjà un compte
-                </a>
+    <main>
+        <section class="hero-wrap" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="eyebrow-line"></span> VOTRE RECHERCHE DE STAGE, MIEUX ORGANISÉE</p>
+                <h1 id="hero-title">Trouvez votre prochain <span>stage.</span></h1>
+                <p class="hero-description">Gardez vos candidatures, vos entretiens et vos prochaines étapes au même endroit. Avancez dans votre recherche avec plus de clarté.</p>
+                
+                <div class="hero-actions">
+                    <a class="button button-dark" href="register.html">Commencer gratuitement <span aria-hidden="true">→</span></a>
+                    <a class="button button-light" href="login.html">J’ai déjà un compte</a>
+                </div>
+                
+                <div class="hero-note">
+                    <span class="note-check" aria-hidden="true">✓</span>
+                    <span>Un espace simple pour suivre votre parcours.</span>
+                </div>
             </div>
-            <div class="hero-note">
-                <span class="note-check" aria-hidden="true">✓</span>
-                Simple à démarrer, prêt à évoluer avec vous.
-            </div>
+
+            <aside class="hero-art" aria-label="Aperçu du suivi de candidatures">
+                <div class="art-orbit orbit-one"></div>
+                <div class="art-orbit orbit-two"></div>
+                <div class="art-sun"></div>
+                <div class="art-card card-top">
+                    <span class="card-icon" aria-hidden="true">↗</span>
+                    <span><strong>Mes candidatures</strong><br>Suivez chaque étape</span>
+                </div>
+                <div class="art-card card-bottom">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span><strong>Prochaine étape</strong><br>Préparer un entretien</span>
+                </div>
+                <div class="art-caption">UN PARCOURS<br>PLUS CLAIR</div>
+            </aside>
         </section>
 
-        <aside class="hero-art" aria-label="Illustration abstraite">
-            <div class="art-orbit orbit-one"></div>
-            <div class="art-orbit orbit-two"></div>
-            <div class="art-sun"></div>
-            <div class="art-card card-top">
-                <span class="card-icon">✳</span>
-                <span>Une idée<br>prend forme</span>
+        <section class="features-section" id="features" aria-labelledby="features-title">
+            <div class="features-heading">
+                <p class="eyebrow"><span class="eyebrow-line"></span> TOUT AU MÊME ENDROIT</p>
+                <h2 id="features-title">Une recherche plus simple, étape par étape.</h2>
             </div>
-            <div class="art-card card-bottom">
-                <span class="status-dot"></span>
-                <span>Votre espace<br>vous attend</span>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <span class="feature-number">01</span>
+                    <h3>Suivez vos candidatures</h3>
+                    <p>Gardez une vue d’ensemble sur les opportunités auxquelles vous avez postulé.</p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">02</span>
+                    <h3>Préparez vos entretiens</h3>
+                    <p>Retrouvez les prochaines étapes de votre recherche dans votre espace.</p>
+                </article>
+                
+                <article class="feature-card">
+                    <span class="feature-number">03</span>
+                    <h3>Gardez le cap</h3>
+                    <p>Organisez votre parcours vers le stage qui vous correspond.</p>
+                </article>
             </div>
-            <div class="art-caption">FAITES DE LA PLACE<br>À VOS PROJETS</div>
-        </aside>
+        </section>
     </main>
 
     <footer class="site-footer">
-        <span>Un nouveau départ, tout simplement.</span>
-        <span class="footer-right">ATELIER <span aria-hidden="true">·</span> 2026</span>
+        <span>Votre prochain stage commence ici.</span>
+        <span class="footer-right">STAGEFLOW <span aria-hidden="true">·</span> 2026</span>
     </footer>
 </body>
-
 </html>
