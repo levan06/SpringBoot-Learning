@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController 
-public class AuthController 
+public class UserAuthController 
 {
     private final UserAuthService userService;
 
-    public AuthController( UserAuthService userService )
+    public UserAuthController( UserAuthService userService )
     {
         this.userService = userService;
     }
@@ -46,7 +46,6 @@ public class AuthController
             return ResponseEntity.badRequest()
                             .body( loginResponse );
         }
-        return ResponseEntity.ok("Valid"); // A completer !!!!
+        return ResponseEntity.ok("Valid Account");
     }
-    
 }

@@ -14,13 +14,17 @@ public class UserAuthService
     private final BCryptPasswordEncoder passwordEncoder;
 
     public UserAuthService( UserRepository userRepository, 
-                            BCryptPasswordEncoder passwordEncoder 
-                        )
+                            BCryptPasswordEncoder passwordEncoder )
     {
         this.userRepository  = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * 
+     * @param user informations to verify after register
+     * @return "Valid" if everything is verified else return the wrong field
+     */
     public String isUserRegisterValid( User user )
     {
         if( user == null ) 
@@ -46,6 +50,13 @@ public class UserAuthService
         return "Valid";
     }
 
+    /**
+     * 
+     * @param user informations to verify after login
+     * 
+     * @return  'Valid' if everything is verified; otherwise, return 'Invalid' without 
+     * specifying whether the issue is with the email or the login for security reasons.
+     */
     public String isUserLoginValid( User user )
     {
         if( user == null ) 
