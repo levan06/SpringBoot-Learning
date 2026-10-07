@@ -1,6 +1,7 @@
-const loginForm = document.getElementById('loginForm');
+﻿const loginForm = document.getElementById('loginForm');
 const loginFormResult = document.getElementById('loginFormResult');
 
+if (loginForm) {
 loginForm.addEventListener( 'submit', async(event) =>
 {
     event.preventDefault();
@@ -23,12 +24,38 @@ loginForm.addEventListener( 'submit', async(event) =>
 
         if( dataFetch.ok && response.trim() === "Valid Account" )
         {
-            console.log("Redirecting...");
-            // The login page is removed from history. "Back" button won't break things.
-            window.location.replace("dashboard.html");
+            window.location.replace("/dashboard");
         }
     } catch (error) {
-        loginFormResult.textContent = "Une erreur est survenue. Réessayez.";
+        loginFormResult.textContent = "Une erreur est survenue. RÃ©essayez.";
         console.error("Registration failed:", error);
     }
 });
+
+
+}
+
+/* logout Part */
+const logoutBtn = document.getElementById('logoutBtn');
+
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", async () => {
+        logoutBtn.disabled = true;
+
+        try {
+            const response = await fetch("/logout", {
+                method: "POST",
+                credentials: "same-origin"
+            });
+
+            if (!response.ok) {
+                throw new Error("Logout request failed");
+            }
+
+            window.location.replace("/login.html");
+        } catch (error) {
+            logoutBtn.disabled = false;
+            console.error("Logout failed:", error);
+        }
+    });
+}
