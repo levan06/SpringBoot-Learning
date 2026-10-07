@@ -3,7 +3,6 @@ package com.abdellah.demo.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.abdellah.demo.entity.User;
-import com.abdellah.demo.repository.UserRepository;
 import com.abdellah.demo.service.UserAuthService;
 
 import org.springframework.http.ResponseEntity;
