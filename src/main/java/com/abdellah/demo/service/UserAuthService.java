@@ -38,14 +38,12 @@ public class UserAuthService
         if( user.getEmail() == null || user.getEmail().isBlank() )
             return "Enter Email";
 
-        if(!EmailValidator.getInstance().isValid(user.getEmail()))
-            return "Invalid email";
-
         if(this.userRepository.existsByEmail(user.getEmail()))
-            return "Email alreasy exists";
+            return "Email already exists";
 
+        /* Password Verifications */
         if(user.getPassword() == null || user.getPassword().length() < 8)
-            return "Invalid Passoword";
+            return "Invalid Password";
 
         return "Valid";
     }
@@ -65,7 +63,6 @@ public class UserAuthService
         if( ! this.userRepository.existsByEmail( user.getEmail() ) )
             return "Invalid Login";
 
-
         /* Password Verifications */
         String storedPassword =  getUserPassword( user.getEmail() );
         if( ! passwordEncoder.matches( user.getPassword(), storedPassword ) )
@@ -79,9 +76,9 @@ public class UserAuthService
         User userToFind = this.userRepository.findByEmail(email);
 
         if(userToFind == null) return "User Not Found";
+        
         return userToFind.getPassword();
     }
-    
 
     public void createUser( User user )
     {
@@ -90,6 +87,11 @@ public class UserAuthService
         );
 
         this.userRepository.save(user);
+    }
+
+    public User findByEmail(String email)
+    {
+        return userRepository.findByEmail(email);
     }
 
 }

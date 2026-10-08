@@ -6,8 +6,11 @@ import com.abdellah.demo.entity.User;
 import com.abdellah.demo.service.UserAuthService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -23,7 +26,7 @@ public class UserAuthController
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody User user) 
+    public ResponseEntity<String> register( @RequestBody User user ) 
     {
         String registerResponse = this.userService.isUserRegisterValid(user); 
 
@@ -38,9 +41,9 @@ public class UserAuthController
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login( 
+    public ResponseEntity<String> login(
             @RequestBody User user,
-            HttpSession session )
+            HttpServletRequest request )
     {
         String loginResponse = this.userService.isUserLoginValid(user);
 
@@ -50,7 +53,26 @@ public class UserAuthController
                             .body( loginResponse );
         }
 
-        session.setAttribute( "userEmail", user.getEmail() );
+        User dbUser = userService.findByEmail( user.getEmail() );
+
+        HttpSession session = request.getSession();
+        request.changeSessionId();
+        session.setAttribute(
+            "userId",
+            dbUser.getId()
+        );
+
         return ResponseEntity.ok("Valid Account");
+    }
+
+    @GetMapping("/session")
+    public String sessionInfo(HttpServletRequest request)
+    {
+        HttpSession session = request.getSession(false);
+    
+        if(session == null)
+            return "No session";
+    
+        return "User ID: " + session.getAttribute("userId");
     }
 }

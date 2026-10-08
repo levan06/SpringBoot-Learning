@@ -44,6 +44,11 @@ public class User
     /*================*/
     /*    Getters     */
     /*================*/
+    public long getId()
+    {
+        return this.id;
+    }
+    
     public String getNom()
     {
         return this.nom;

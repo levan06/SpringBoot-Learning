@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f4f7fb">
+    <meta name="csrf-token" th:content="${csrfToken}">
     <title>Tableau de bord | StageFlow</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
-
 <body class="dashboard-page">
     <header class="site-header dashboard-header">
-        <a class="brand" href="index.html" aria-label="StageFlow, accueil">
+        <a class="brand" href="/index.html" aria-label="StageFlow, accueil">
             <span class="brand-mark" aria-hidden="true">S</span>
             <span>StageFlow<span class="brand-dot">.</span></span>
         </a>
 
         <nav class="header-nav" aria-label="Navigation du tableau de bord">
-            <a class="nav-link" href="index.html">Découvrir StageFlow</a>
+            <a class="nav-link" href="/index.html">Découvrir StageFlow</a>
             <button type="button" id="logoutBtn" class="button button-small button-light">
                 Se déconnecter
             </button>
@@ -40,8 +39,8 @@
                 <h2 id="application-title">Organisez votre recherche</h2>
                 <p>Votre espace est prêt. Les fonctions de suivi des candidatures pourront être ajoutées ici.</p>
             </div>
-            
-            <a class="button button-dark" href="index.html#features">Découvrir les outils <span aria-hidden="true">→</span></a>
+
+            <a class="button button-dark" href="/index.html#features">Découvrir les outils <span aria-hidden="true">→</span></a>
         </section>
 
         <section class="dashboard-cards" aria-label="Outils de recherche de stage">
@@ -73,6 +72,6 @@
         <span class="footer-right">STAGEFLOW <span aria-hidden="true">·</span> 2026</span>
     </footer>
 
-    <script src="js/login.js"></script>
+    <script src="/js/login.js"></script>
 </body>
 </html>
