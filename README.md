@@ -2,7 +2,7 @@
 
 > 🚧 Learning Project
 
-This repository contains my experiments and practice projects while learning Spring Boot and backend development.
+This repository contains my experiments and practice projects while learning Spring Boot, backend development, and PostgreSQL.
 
 ## Topics Covered
 
@@ -13,6 +13,8 @@ This repository contains my experiments and practice projects while learning Spr
 - Spring Data JPA
 - PostgreSQL Integration
 - CRUD Operations
+- Authentication & Sessions
+- Password Hashing (BCrypt)
 - Maven
 
 ## Technologies
@@ -21,30 +23,36 @@ This repository contains my experiments and practice projects while learning Spr
 - Spring Boot
 - PostgreSQL
 - Maven
-
-## Learning Objectives
-
-- Build RESTful APIs
-- Connect applications to PostgreSQL
-- Understand Spring Boot architecture
-- Learn dependency injection
-- Work with JPA and repositories
-- Prepare for larger backend projects
+- HTML
+- CSS
+- JavaScript
 
 ## Current Progress
 
-✅ Basic Spring Boot setup
+### Completed
 
-✅ REST Controllers
+- ✅ Spring Boot setup
+- ✅ REST Controllers
+- ✅ PostgreSQL connection
+- ✅ CRUD operations
+- ✅ User registration
+- ✅ User login
+- ✅ Password hashing with BCrypt
+- ✅ Session management
+- ✅ Logout functionality
 
-✅ PostgreSQL connection
+### In Progress
 
-✅ CRUD operations
+- 🚧 Protected dashboard
+- 🚧 User authorization
 
-🚧 Authentication
+### Planned
 
-🚧 Docker integration
+- 📌 Spring Security
+- 📌 JWT Authentication
+- 📌 Redis
+- 📌 Docker
 
-## Future Projects
+## Purpose
 
-This repository serves as a learning environment before developing larger Spring Boot applications.
+This repository serves as a learning environment before developing larger Spring Boot applications and full-stack projects.
