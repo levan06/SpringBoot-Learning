@@ -53,6 +53,3 @@ This repository contains my experiments and practice projects while learning Spr
 - 📌 Redis
 - 📌 Docker
 
-## Purpose
-
-This repository serves as a learning environment before developing larger Spring Boot applications and full-stack projects.
