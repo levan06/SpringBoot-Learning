@@ -1,55 +1,56 @@
-# SpringBoot-Learning
+# StageFlow — Internship Management System
 
-> 🚧 Learning Project
+StageFlow is a web application under development designed to simplify and organize internship management. Built with Spring Boot and PostgreSQL, the project combines backend development, database management, and web technologies to build a practical application.
 
-This repository contains my experiments and practice projects while learning Spring Boot, backend development, and PostgreSQL.
+## Features
 
-## Topics Covered
-
-- Spring Boot Fundamentals
-- REST APIs
-- Controllers
-- Dependency Injection
-- Spring Data JPA
-- PostgreSQL Integration
-- CRUD Operations
-- Authentication & Sessions
-- Password Hashing (BCrypt)
-- Maven
+- User registration and login
+- Secure password hashing with BCrypt
+- Session management and logout
+- Protected dashboard
+- User authorization
+- Internship management workflows (in development)
 
 ## Technologies
 
-- Java
-- Spring Boot
-- PostgreSQL
-- Maven
-- HTML
-- CSS
-- JavaScript
+- **Backend:** Java, Spring Boot
+- **Database:** PostgreSQL, Spring Data JPA
+- **Build Tool:** Maven
+- **Frontend:** HTML, CSS, JavaScript
+- **Security:** BCrypt password hashing, session management, CSRF protection
 
-## Current Progress
+## Development Progress
 
 ### Completed
 
-- ✅ Spring Boot setup
-- ✅ REST Controllers
-- ✅ PostgreSQL connection
+- ✅ Spring Boot project setup
+- ✅ REST controllers and HTTP endpoints
+- ✅ PostgreSQL integration
 - ✅ CRUD operations
 - ✅ User registration
 - ✅ User login
 - ✅ Password hashing with BCrypt
 - ✅ Session management
 - ✅ Logout functionality
+- ✅ CSRF protection testing
 
 ### In Progress
 
-- 🚧 Protected dashboard
-- 🚧 User authorization
+- 🚧 Internship management features
+- 🚧 User authorization and access control
+- 🚧 Integration of authentication with application workflows
 
 ### Planned
 
-- 📌 Spring Security
-- 📌 JWT Authentication
-- 📌 Redis
-- 📌 Docker
+- 📌 Spring Security integration
+- 📌 JWT authentication, if needed for the application architecture
+- 📌 Redis integration, if needed
+- 📌 Docker containerization
 
+## Project Goal
+
+The goal of StageFlow is to develop a maintainable and secure internship management application while applying backend development principles and modern web technologies in a real-world project.
+
+---
+
+*This project is actively under development. Features and architecture may evolve as development progresses.*
