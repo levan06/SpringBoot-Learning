@@ -43,9 +43,19 @@ if (logoutBtn) {
         logoutBtn.disabled = true;
 
         try {
+            const csrfToken = document.querySelector(
+                'meta[name="csrf-token"]'
+            )?.content;
+            
+            if (!csrfToken) 
+            {
+                throw new Error("CSRF token is missing");
+            }
+
             const response = await fetch("/logout", {
                 method: "POST",
-                credentials: "same-origin"
+                credentials: "same-origin",
+                headers: { "X-CSRF-TOKEN": csrfToken }
             });
 
             if (!response.ok) {
@@ -55,7 +65,7 @@ if (logoutBtn) {
             window.location.replace("/login.html");
         } catch (error) {
             logoutBtn.disabled = false;
-            console.error("Logout failed:", error);
+            console.error("Logout failed : ", error);
         }
     });
 }

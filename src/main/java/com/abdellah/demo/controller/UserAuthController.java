@@ -56,10 +56,7 @@ public class UserAuthController
 
         HttpSession session = request.getSession();
         request.changeSessionId();
-        session.setAttribute(
-            "userId",
-            dbUser.getId()
-        );
+        session.setAttribute( "userId", dbUser.getId() );
 
         return ResponseEntity.ok("Valid Account");
     }
