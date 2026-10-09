@@ -7,7 +7,6 @@ import com.abdellah.demo.service.UserAuthService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

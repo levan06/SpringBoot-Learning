@@ -3,7 +3,7 @@ package com.abdellah.demo.service;
 import com.abdellah.demo.entity.User;
 import com.abdellah.demo.repository.UserRepository;
 
-import org.apache.commons.validator.routines.EmailValidator;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
